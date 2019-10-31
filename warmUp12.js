@@ -22,3 +22,55 @@ Technical Details
     -The maximum size of a range will be 100 integers
     -The starting number of a range will be: 0 < n < 100
  */
+
+ function smallestAndLargest (string ,number) {
+    var splitedArr = string.split('');
+    //var splitedArrlenght = splitedArr.length
+    var extraNumber = splitedArr.length % number;
+    var sortedArr =[];
+    var str ='';
+    console.log(extraNumber)
+    for (var i = 0; i < splitedArr.length; i+2) {
+       
+        if(extraNumber >0){
+            console.log(extraNumber)
+            var str = str+ splitedArr[i]+splitedArr[i+1];
+            sortedArr[i]= str
+            extraNumber--;
+            str =''
+        }
+       //else sortedArr[i]= splitedArr[i]
+    }
+    return smalLarge(sortedArr);
+
+ }
+
+//  function smallestAndLargest (string ,number) {
+//     var splitedArr = string.split('');
+//     var extraNumber = splitedArr.length % number;
+//     var str;
+//     counter=2;
+//     while (extraNumber >0){        
+//     str = string.split(string[2]);
+//     str =str[counter].split(str[2])
+//     extraNumber--;
+//     }
+//     return str;
+// }
+
+function smalLarge(sortedArr){
+    var mxmn =[]
+    var max=0;
+    var min=sortedArr[0];
+    for (var i = 0; i < sortedArr.length; i++) {
+        if(min > sortedArr[i]){
+            min = sortedArr[i]
+        }
+        if(max < sortedArr[i]){
+            max =sortedArr[i]
+        }        
+}
+mxmn.push(max)
+ mxmn.push(min)
+ return mxmn
+}
