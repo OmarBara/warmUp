@@ -1,6 +1,7 @@
 /* 1. Create a function that takes a Roman numeral as its argument and returns its value as a numeric decimal integer. You don't need to validate the form of the Roman numeral.
 
-        Modern Roman numerals are written by expressing each decimal digit of the number to be encoded separately, starting with the leftmost digit and skipping any 0s. So 1990 is rendered "MCMXC" (1000 = M, 900 = CM, 90 = XC) and 2008 is rendered "MMVIII" (2000 = MM, 8 = VIII). The Roman numeral for 1666, "MDCLXVI", uses each letter in descending order.
+        Modern Roman numerals are written by expressing each decimal digit of the number to be encoded separately, starting with the leftmost digit and skipping any 0s. 
+        So 1990 is rendered "MCMXC" (1000 = M, 900 = CM, 90 = XC) and 2008 is rendered "MMVIII" (2000 = MM, 8 = VIII). The Roman numeral for 1666, "MDCLXVI", uses each letter in descending order.
 
         Example:
 
@@ -23,6 +24,8 @@
         toCamelCase("the-stealth-warrior") // returns "theStealthWarrior"
 
         toCamelCase("The_Stealth_Warrior") // returns "TheStealthWarrior"
+
+
     
     3. In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
         Example
@@ -31,3 +34,42 @@
             filter_list([1,'a','b',0,15]) == [1,0,15]
             filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
 */
+
+//2-
+// function CamCase (str){
+//     //for (var i = 0; i < str.length; i++) {
+//         tmpArr =str.split(/[-]/g);
+
+//         for (var i = 0; i < tmpArr.length; i++) {
+//             console.log(tmpArr[i][0])
+//             tmpArr[i][0] = tmpArr[i][0].toUpperCase()
+//         }
+//         return tmpArr
+//     }
+
+function CamCase (str){
+    for (var i = 0; i < str.length; i++) {
+        if(str[i] === '-' || str[i] === '_'){
+            str[i+1] = str[i+1].toUpperCase()
+            //str.splice(i)
+        }
+    }
+}
+
+
+//3-
+function filterNumbers (array) {
+    var str ='';
+    str = array + str;
+    var filter = str;
+
+    for (var i = 0; i < filter.length; i++) {
+        for (var j = 0; i < filter.length; i++) {
+            if(filter[i] === filter[j]){
+                filter.slice(j) 
+            }
+        }
+    }
+    filter = filter.match(/\d+/g)
+    return filter;
+}
