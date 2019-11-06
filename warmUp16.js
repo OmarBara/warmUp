@@ -16,3 +16,26 @@
 // Constraints:
 // 1 <= text.length <= 10^4
 // text consists of lower case English letters only.
+
+function ballon(str) {
+
+	var baloonArr ='ballon'.split('')
+	var sort =[]
+	// body...
+	arr = str.match(/[baloon]/g)
+	arr.sort();
+	console.log('arr', arr)
+	console.log(baloonArr) 
+	for (var i = 0; i < arr.length; i++) {
+		for (var j = 0; j < baloonArr.length; j++) {
+				if (arr[i] ==  baloonArr[j]){
+					arr.splice(i,1)
+					baloonArr.splice(j,1)
+					console.log(i,j)
+					sort.push(i)
+				}	
+		}
+		sort.push([])		
+	}
+	return sort
+}
