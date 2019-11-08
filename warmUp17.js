@@ -1,6 +1,8 @@
 // There is a special keyboard with all keys in a single row.
 // ​
-// Given a string keyboard of length 26 indicating the layout of the keyboard (indexed from 0 to 25), initially your finger is at index 0. To type a character, you have to move your finger to the index of the desired character. The time taken to move your finger from index i to index j is |i - j|.
+// Given a string keyboard of length 26 indicating the layout of the keyboard 
+//(indexed from 0 to 25), initially your finger is at index 0. To type a character,
+// you have to move your finger to the index of the desired character. The time taken to move your finger from index i to index j is |i - j|.
 // ​
 // You want to type a string word. Write a function to calculate how much time it takes to type it with one finger.
 // ​
@@ -26,7 +28,23 @@
 // word[i] is an English lowercase letter.
 
 // ​
-// ​
-// var calculateTime = function(keyboard, word) {
+// ​var calculateTime = function(keyboard, word)
+ function calculateTime (keyboard, word) {
+    word = word.split('')
+    var index =[]  , result = [] ,total = 0;
+    var count = 0;
+    for (var i = 0; i < word.length; i++) {
+    	index.push(keyboard.indexOf(word[i]))
+    }
+    for (var i = 0; i < index.length; i++) {
+    	//for (var j = i+1; j < 2; j++) {
+    		result.push(Math.abs(index[i] - index[i+1]))
+    	}
+    	result[result.length-1] = index[0]
+
+    	for (var i = 0; i < result.length; i++) {
+    		total += result[i]
+    	}
     
-// };
+    return total
+ };
