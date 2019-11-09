@@ -10,3 +10,23 @@
 
 // input   =  "aaaaaaaaaaaa"
 // result  =  "123456789101112"
+
+function countChar(string) {
+	// body...
+	var arr = string.split('')
+
+	//make initial zero array with same lenght
+	var zeros = Array.from(arr)
+	for (var i = 0; i < zeros.length; i++) {
+		zeros[i] = 0
+	}
+//compare the value if existed increment zero array
+	for (var i = 0; i < arr.length; i++) {
+		for (var j = i; j < arr.length; j++) {
+			if(arr[i] === arr[j]){
+				zeros[j]++
+			}
+		}
+	}
+	return zeros.join('')
+}
